@@ -1,0 +1,23 @@
+{
+  "name": "nft",
+  "version": "0.0.1",
+  "description": "One Handy NFT Creation",
+  "main": "index.js",
+  "scripts": {
+    "contract": "network=$(grep BLOCKCHAIN_NETWORK .env | cut -d '=' -f2) && truffle --network $network",
+    "nft:generate": "plop nft",
+    "nft:client": "node html/serve",
+    "test": "node test/test"
+  },
+  "author": "mtegarsantosa",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.3.2",
+    "@truffle/hdwallet-provider": "^1.5.0",
+    "dotenv": "^10.0.0",
+    "live-server": "^1.2.1",
+    "plop": "^2.7.4",
+    "serve": "^12.0.1",
+    "truffle": "^5.4.13"
+  }
+}

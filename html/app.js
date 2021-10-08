@@ -1,9 +1,6 @@
 "use strict";
 import Home from './views/pages/Home.js'
-// import About from './views/pages/About.js'
 import Error404 from './views/pages/Error404.js'
-// import PostShow from './views/pages/PostShow.js'
-import Register from './views/pages/Register.js'
 
 import NFTMint from './views/pages/NFTMint.js'
 import NFTTransfer from './views/pages/NFTTransfer.js'
@@ -16,9 +13,6 @@ const routes = {
     '/': Home,
     '/mint': NFTMint,
     '/transfer': NFTTransfer,
-    
-    
-    '/register': Register,
 };
 
 

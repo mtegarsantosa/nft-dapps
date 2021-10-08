@@ -12,6 +12,7 @@ const burgerNav = () => {
   }
 }
 const connected = async () => {
+    Moralis.enable();
     connectMetamaskBtn.style.display = 'none';
     metamaskBtn.style.display = 'inherit';
     metamaskBtn.innerHTML = ethereum.selectedAddress.substr(0,10) + '...';

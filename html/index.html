@@ -13,9 +13,14 @@
     <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
     <script src="static/js/cookie.js"></script>
     <script>
-        const web3 = new Web3(new Web3.providers.HttpProvider('https://speedy-nodes-nyc.moralis.io/0899f85a180ace99d8358a78/bsc/testnet'));
-        Moralis.initialize(getCookie("MORALIS_APP_ID"));
-        Moralis.serverURL = getCookie("MORALIS_SERVER_URL");
+        const web3 = new Web3(new Web3.providers.HttpProvider(NODE));
+        Moralis.initialize(MORALIS_APP_ID);
+        Moralis.serverURL = MORALIS_SERVER_URL;
+        var instance;
+        (async function() {
+            const NFT = await (await fetch("/contracts/NFT.json")).json();
+            instance = new web3.eth.Contract(NFT.abi, CONTRACT_ADDRESS);
+        })
     </script>
     <script type="module" src="app.js"></script>
 </head>

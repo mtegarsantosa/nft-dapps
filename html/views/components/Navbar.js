@@ -61,8 +61,8 @@ export default {
                         <div class="navbar-end">
                             <div class="navbar-item">
                                 <div class="buttons">
-                                    <a class="button is-warning" href="/#/register">
-                                        <strong>BSC Scan</strong>
+                                    <a class="button is-warning" target="_blank" id="explorerBtn" href="#">
+                                        <strong>${CONTRACT_ADDRESS}</strong>
                                     </a>
                                     <button class="button" id="connectMetamaskBtn" type="button">
                                         <strong>Connect to Metamask</strong>
@@ -72,10 +72,13 @@ export default {
                             <div class="navbar-item has-dropdown is-hoverable">
                                 <a id="metamaskBtn" class="navbar-link">asd</a>
                                 <div class="navbar-dropdown">
+                                    <a target="_blank" href="${EXPLORER}/address/${ethereum.selectedAddress}" class="navbar-item">
+                                        Explorer
+                                    </a>
+                                    <hr class="navbar-divider">
                                     <a id="disconnectMetamaskBtn" class="navbar-item">
                                         Disconnect
                                     </a>
-                                    <!-- <hr class="navbar-divider"> -->
                                 </div>
                             </div>
                         </div>
@@ -88,6 +91,7 @@ export default {
     after_render: async () => {
         burgerNav();
         metamaskBtn.style.display = 'none';
+        explorerBtn.href = `${EXPLORER}/address/${CONTRACT_ADDRESS}`;
         
         connectMetamaskBtn.addEventListener("click", function() {
             connect();
@@ -95,7 +99,7 @@ export default {
         disconnectMetamaskBtn.addEventListener("click", function() {
             disconnect();
         });
-        if (ethereum.isConnected() && getCookie("CONNECTED_WALLET")) {
+        if (ethereum.isConnected() && CONNECTED_WALLET) {
             connected();
         }
     }

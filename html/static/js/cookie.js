@@ -20,3 +20,10 @@ function getCookie(name) {
 function removeCookie(name) {   
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
+
+const CONTRACT_ADDRESS = getCookie("CONTRACT_ADDRESS");
+const MORALIS_APP_ID = getCookie("MORALIS_APP_ID");
+const MORALIS_SERVER_URL = getCookie("MORALIS_SERVER_URL");
+const NODE = getCookie("NODE");
+const EXPLORER = getCookie("EXPLORER");
+const CONNECTED_WALLET = getCookie("CONNECTED_WALLET");

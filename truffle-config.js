@@ -2,8 +2,10 @@ require('dotenv').config();
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const ENV = process.env;
+const NETWORK = require('./helpers/network');
 
 module.exports = {
+  contracts_build_directory: "./html/contracts",
   networks: {
     development: {
       host: "127.0.0.1",
@@ -12,7 +14,7 @@ module.exports = {
       from: ENV.WALLET_ADDRESS
      },
      bscTestnet: {
-      provider: () => new HDWalletProvider(ENV.WALLET_MNEMONIC, `https://speedy-nodes-nyc.moralis.io/0899f85a180ace99d8358a78/bsc/testnet`),
+      provider: () => new HDWalletProvider(ENV.WALLET_MNEMONIC, NETWORK.bscTestnet.node),
       network_id: 97,
       confirmations: 10,
       timeoutBlocks: 200,
@@ -20,7 +22,7 @@ module.exports = {
       skipDryRun: true
     },
     bscMainnet: {
-      provider: () => new HDWalletProvider(ENV.WALLET_MNEMONIC, `https://speedy-nodes-nyc.moralis.io/0899f85a180ace99d8358a78/bsc/mainnet`),
+      provider: () => new HDWalletProvider(ENV.WALLET_MNEMONIC, NETWORK.bscMainnet.node),
       network_id: 56,
       confirmations: 10,
       timeoutBlocks: 200,
@@ -29,7 +31,7 @@ module.exports = {
     },
     // Ropsten Testnet
     ethTestnet: {
-      provider: () => new HDWalletProvider(mnemonic, `https://speedy-nodes-nyc.moralis.io/0899f85a180ace99d8358a78/eth/ropsten`),
+      provider: () => new HDWalletProvider(ENV.WALLET_MNEMONIC, NETWORK.ethTestnet.node),
       network_id: 3,       // Ropsten's id
       gas: 5500000,        // Ropsten has a lower block limit than mainnet
       confirmations: 2,    // # of confs to wait between deployments. (default: 0)
@@ -38,7 +40,7 @@ module.exports = {
       skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
     },
     ethMainnet: {
-      provider: () => new HDWalletProvider(mnemonic, `https://speedy-nodes-nyc.moralis.io/0899f85a180ace99d8358a78/eth/mainnet`),
+      provider: () => new HDWalletProvider(ENV.WALLET_MNEMONIC, NETWORK.ethMainnet.node),
       network_id: 1,
       confirmations: 2,
       timeoutBlocks: 200,

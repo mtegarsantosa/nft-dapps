@@ -1,11 +1,17 @@
 const transfer = async () => {
-    let txid = await Moralis.transfer({
+    await Moralis.transfer({
         type: 'erc721',
         receiver: receipentAddressNFT.value,
         contract_address: CONTRACT_ADDRESS,
-        token_id: inputFindNFT.value
-    });
-    console.log(txid);
+        token_id: inputCheckNFT.value
+    }).then(notify);
+}
+const notify = (_txt) => {
+    if (_txt.status) {
+        notifTransfer.querySelector("#notifMessage").innerHTML = "NFT Transfered! Transaction ID: "
+        notifTransfer.querySelector("#notifInfo a").innerHTML = _txt.transactionHash
+        notifTransfer.querySelector("#notifInfo a").href = `${EXPLORER}/tx/${_txt.transactionHash}`
+    }
 }
 export default {
     render: async () => {
@@ -27,7 +33,7 @@ export default {
                                 <div class="column is-four-fifths">
                                     <div class="field">
                                         <div class="control has-icons-left has-icons-right">
-                                            <input required class="input is-large" type="number" id="inputFindNFT" autocomplete="off" placeholder="NFT ID">
+                                            <input required class="input is-large" type="text" disabled id="inputCheckNFT" autocomplete="off" placeholder="NFT ID">
                                             <span class="icon is-left">
                                                 <i class="fas fa-images fa-sm"></i>
                                             </span>
@@ -35,7 +41,7 @@ export default {
                                     </div>
                                 </div>
                                 <div class="column">
-                                    <button class="button is-primary is-large" id="findNFT" type="button">Find NFT</button>
+                                    <button class="button is-primary is-large" id="checkNFT" type="button">Check NFT</button>
                                 </div>
                             </div>
                         </div>
@@ -64,6 +70,14 @@ export default {
                             </div>
                         </div>
                     </div>
+                    <div class="notification">
+                        <div id="notifTransfer" class="columns">
+                            <div id="notifMessage" class="column is-one-third"></div>
+                            <div id="notifInfo" class="column">
+                                <b><a target="_blank" href="#"></a></b>
+                            </div>
+                        </div>
+                    </div>
                     <hr/>
                     <div class="has-text-right">
                         <button id="transferNFTBtn" class="button is-info is-fullwidth is-large">Transfer NFT!</button>
@@ -74,21 +88,20 @@ export default {
         return view
     },
     after_render: async () => {
+        let token_id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+        inputCheckNFT.value = token_id;
         transferNFT.addEventListener("submit", function(){
-            console.log("hi");
-        });
-        findNFT.addEventListener("click", async function() {
-            findNFT.classList.add("is-loading")
-            let tokenURI = await instance.methods.tokenURI(inputFindNFT.value).call();
-            let nft = await (await fetch(tokenURI)).json();
-            findNFT.classList.remove("is-loading");
-            nftName.innerHTML = nft.name;
-            nftDescription.innerHTML = nft.description;
-            nftImage.src = nft.image;
-            viewNFT.style.display = 'block';
-        });
-        transferNFTBtn.addEventListener("click", async function() {
             transfer();
+        });
+        checkNFT.addEventListener("click", async function() {
+            checkNFT.classList.add("is-loading")
+            let nft = await web3api.get(`/nft/${CONTRACT_ADDRESS}/${inputCheckNFT.value}`);
+            nft.metadata = JSON.parse(nft.metadata)
+            checkNFT.classList.remove("is-loading");
+            nftName.innerHTML = nft.metadata.name;
+            nftDescription.innerHTML = nft.metadata.description;
+            nftImage.src = nft.metadata.image;
+            viewNFT.style.display = 'block';
         });
     }
 }

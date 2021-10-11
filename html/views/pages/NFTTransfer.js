@@ -90,8 +90,10 @@ export default {
     after_render: async () => {
         let token_id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
         inputCheckNFT.value = token_id;
-        transferNFT.addEventListener("submit", function(){
-            transfer();
+        transferNFT.addEventListener("submit", async function(){
+            transferNFTBtn.classList.add("is-loading")
+            await transfer();
+            transferNFTBtn.classList.remove("is-loading")
         });
         checkNFT.addEventListener("click", async function() {
             checkNFT.classList.add("is-loading")

@@ -1,6 +1,8 @@
 const getNFTs = async () => {
     if (CONNECTED_WALLET) {
-        let nfts = await web3api.get(`/nft/${CONTRACT_ADDRESS}`);
+        let nfts = await web3api.get(`/nft/${CONTRACT_ADDRESS}/owners`, {
+            order: 'token_id.DESC'
+        });
         nfts = nfts.result;
         nfts.map((item, index) => {
             nfts[index].metadata = JSON.parse(item.metadata)
@@ -36,7 +38,7 @@ export default {
                                     </div>
                                 
                                     <div class="content">
-                                        <a href="${nft.token_uri}" target="_blank">See Token URI</a>
+                                        <b>Owner:</b> <a href="${EXPLORER}/address/${nft.owner_of}" target="_blank">${nft.owner_of.substr(0, 12)}...</a>
                                         <hr/>
                                         <div>
                                         Token ID: <b>${nft.token_id}</b></a>

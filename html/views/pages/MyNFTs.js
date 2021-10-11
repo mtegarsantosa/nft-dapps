@@ -1,6 +1,8 @@
 const getMyNFTs = async () => {
     if (CONNECTED_WALLET) {
-        let myNFTs = await web3api.get(`/${ethereum.selectedAddress}/nft/${CONTRACT_ADDRESS}`);
+        let myNFTs = await web3api.get(`/${ethereum.selectedAddress}/nft/${CONTRACT_ADDRESS}`, {
+            order: 'token_id.DESC'
+        });
         myNFTs = myNFTs.result;
         myNFTs.map(item => {
             item.metadata = JSON.parse(item.metadata)

@@ -4,3 +4,20 @@
 .view-nft div{
     margin-bottom: 10px;
 }
+.image {
+    width: 100%;
+    height: 200px;
+    max-height: 240px;
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+}
+.image img {
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 100%;
+}
+#nprogress .bar {
+    height: 5px;
+}

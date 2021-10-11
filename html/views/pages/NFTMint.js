@@ -43,6 +43,13 @@ const notify = (_txt) => {
 }
 export default {
     render: async () => {
+        if (!CONNECTED_WALLET) {
+            return `
+                <section class="section">
+                    Please connect your Metamask wallet!
+                </section>
+            `
+        }
         let view = /*html*/ `
             <section class="section">
                 <h1 class="title"> NFT Mint </h1>
@@ -66,7 +73,7 @@ export default {
                                 </div>
                             </div>
                         </div>
-                        <div class="column">
+                        <div class="column is-one-third">
                             <div class="file has-name is-fullwidth">
                                 <label class="file-label">
                                     <input class="file-input" accept="image/*" type="file" id="nftImage">
@@ -84,11 +91,9 @@ export default {
                                 </label>
                             </div>
                             <br/>
-                            <div class="has-text-center">
-                                <figure class="image">
-                                    <image id="previewNFT" src=""/>
-                                </figure>
-                            </div>
+                            <figure>
+                                <image id="previewNFT" src=""/>
+                            </figure>
                         </div>
                     </div>
                     <div class="notification">
@@ -109,13 +114,15 @@ export default {
         return view
     },
     after_render: async () => {
-        mintNFT.addEventListener("submit", function(){
-            upload();
-        });
-        nftImage.addEventListener("change", function(e){
-            let file = e.target.files[0];
-            nftFileName.innerHTML = file.name;
-            previewNFT.src = URL.createObjectURL(file);
-        });
+        if (CONNECTED_WALLET) {
+            mintNFT.addEventListener("submit", function(){
+                upload();
+            });
+            nftImage.addEventListener("change", function(e){
+                let file = e.target.files[0];
+                nftFileName.innerHTML = file.name;
+                previewNFT.src = URL.createObjectURL(file);
+            });
+        }
     }
 }

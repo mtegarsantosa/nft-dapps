@@ -9,8 +9,8 @@ module.exports = function (plop) {
         },
         {
             type: 'input',
-            name: 'nft_shortname',
-            message: 'NFT Short Name (BOMBG)'
+            name: 'nft_symbol',
+            message: 'NFT Symbol (BOMBG)'
         }],
         actions: [{
             type: 'add',

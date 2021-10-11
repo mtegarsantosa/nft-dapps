@@ -24,11 +24,18 @@ const connect = async () => {
     connectMetamaskBtn.classList.remove("is-loading");
     if (user) {
         connected();
+        location.reload();
     }
 }
 const disconnect = async () => {
     removeCookie("CONNECTED_WALLET");
     location.reload();
+}
+const tokenInfo = async () => {
+    explorerBtn.classList.add('is-loading');
+    let token = await web3api.get(`/nft/${CONTRACT_ADDRESS}/metadata`);
+    explorerBtn.innerHTML = `<strong>${token.name}</strong> (${token.symbol})`;
+    explorerBtn.classList.remove('is-loading');
 }
 export default {
     render: async () => {
@@ -55,16 +62,14 @@ export default {
                             <a class="navbar-item" href="/#/mint">
                                 Mint NFT
                             </a>
-                            <a class="navbar-item" href="/#/transfer">
-                                Transfer NFT
+                            <a class="navbar-item" href="/#/my-nfts">
+                                My NFTs
                             </a>
                         </div>
                         <div class="navbar-end">
                             <div class="navbar-item">
                                 <div class="buttons">
-                                    <a class="button is-warning" target="_blank" id="explorerBtn" href="#">
-                                        <strong>${CONTRACT_ADDRESS}</strong>
-                                    </a>
+                                    <a class="button is-warning" target="_blank" id="explorerBtn" href="${EXPLORER}/token/${CONTRACT_ADDRESS}"></a>
                                     <button class="button" id="connectMetamaskBtn" type="button">
                                         <strong>Connect to Metamask</strong>
                                     </button>
@@ -91,8 +96,9 @@ export default {
     },
     after_render: async () => {
         burgerNav();
+        tokenInfo();
+        
         metamaskBtn.style.display = 'none';
-        explorerBtn.href = `${EXPLORER}/address/${CONTRACT_ADDRESS}`;
         
         connectMetamaskBtn.addEventListener("click", function() {
             connect();
@@ -100,8 +106,11 @@ export default {
         disconnectMetamaskBtn.addEventListener("click", function() {
             disconnect();
         });
-        if (ethereum.isConnected() && CONNECTED_WALLET) {
+        if (ethereum.selectedAddress && CONNECTED_WALLET) {
             connected();
         }
+        window.ethereum.on('accountsChanged', function (accounts) {
+            connected();
+        });
     }
 }

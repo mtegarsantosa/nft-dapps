@@ -5,12 +5,12 @@ module.exports = function (plop) {
         prompts: [{
             type: 'input',
             name: 'nft_name',
-            message: 'NFT Name (e.g Bomber Gun)'
+            message: 'NFT Token Name (e.g Bomber Gun)'
         },
         {
             type: 'input',
             name: 'nft_symbol',
-            message: 'NFT Symbol (BOMBG)'
+            message: 'NFT Token Symbol (BOMBG)'
         }],
         actions: [{
             type: 'add',

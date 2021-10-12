@@ -4,7 +4,7 @@ const NETWORK = require('../helpers/network');
 
 var params = {
     port: 8080,
-    host: "0.0.0.0", 
+    host: "localhost", 
     root: "html",
     open: true,
     file: "index.html",

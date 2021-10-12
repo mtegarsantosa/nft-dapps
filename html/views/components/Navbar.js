@@ -111,6 +111,7 @@ export default {
         }
         window.ethereum.on('accountsChanged', function (accounts) {
             connected();
+            location.reload();
         });
     }
 }

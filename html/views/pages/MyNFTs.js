@@ -24,18 +24,18 @@ export default {
                             <div class="card">
                                 <div class="card-image">
                                 <figure class="image">
-                                    <img src="${myNFT.metadata.image}" alt="NFT Name">
+                                    <img src="${myNFT.metadata ? myNFT.metadata.image : '/static/image/sync.png'}" alt="NFT Name">
                                 </figure>
                                 </div>
                                 <div class="card-content">
                                     <div class="media">
                                         <div class="media-content">
-                                            <p class="title is-4">${myNFT.metadata.name}</p>
+                                            <p class="title is-4">${myNFT.metadata ? myNFT.metadata.name : '<i>Syncing...</i>'}</p>
                                         </div>
                                     </div>
                                 
                                     <div class="content">
-                                        ${myNFT.metadata.description}
+                                        ${myNFT.metadata ? myNFT.metadata.description : '<i>Syncing...</i>'}
                                         <hr/>
                                         <div>
                                         Token ID: <b>${myNFT.token_id}</b></a>

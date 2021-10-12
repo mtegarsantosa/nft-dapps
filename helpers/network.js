@@ -1,4 +1,8 @@
 module.exports = {
+    development: {
+        node: "*",
+        explorer: "*"
+    },
     bscTestnet: {
         node: "https://speedy-nodes-nyc.moralis.io/0899f85a180ace99d8358a78/bsc/testnet",
         explorer: "https://testnet.bscscan.com"

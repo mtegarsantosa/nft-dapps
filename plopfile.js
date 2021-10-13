@@ -1,6 +1,6 @@
 module.exports = function (plop) {
     // controller generator
-    plop.setGenerator('nft', {
+    plop.setGenerator('token', {
         description: 'NFT smart contract starter',
         prompts: [{
             type: 'input',

@@ -19,6 +19,7 @@ var params = {
                 `MORALIS_APP_ID=${process.env.MORALIS_APP_ID}; Max-Age=3000`,
                 `MORALIS_SERVER_URL=${process.env.MORALIS_SERVER_URL}; Max-Age=3000`,
                 `MORALIS_API_KEY=${process.env.MORALIS_API_KEY}; Max-Age=3000`,
+                `MORALIS_API_PARAMS_CHAIN=${NETWORK[process.env.BLOCKCHAIN_NETWORK].api_params.chain}; Max-Age=3000`,
                 `MORALIS_API_URL=${process.env.MORALIS_API_URL}; Max-Age=3000`
             ]);
         }

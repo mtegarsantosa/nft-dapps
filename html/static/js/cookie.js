@@ -26,6 +26,7 @@ const MORALIS_APP_ID = getCookie("MORALIS_APP_ID");
 const MORALIS_SERVER_URL = getCookie("MORALIS_SERVER_URL");
 const MORALIS_API_KEY = getCookie("MORALIS_API_KEY");
 const MORALIS_API_URL = getCookie("MORALIS_API_URL");
+const MORALIS_API_PARAMS_CHAIN = getCookie("MORALIS_API_PARAMS_CHAIN");
 const NODE = getCookie("NODE");
 const EXPLORER = getCookie("EXPLORER");
 const CONNECTED_WALLET = getCookie("CONNECTED_WALLET");

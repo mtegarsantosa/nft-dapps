@@ -6,7 +6,7 @@ var web3api = {
                 'X-API-Key': MORALIS_API_KEY
             },
             params: {
-                chain: 'bsc testnet',
+                chain: MORALIS_API_PARAMS_CHAIN,
                 ...params
             }
         });
@@ -17,7 +17,7 @@ var web3api = {
             headers: {
                 'accept': 'application/json',
                 'X-API-Key': MORALIS_API_KEY
-            },
+            }
         });
         return request.data;
     }

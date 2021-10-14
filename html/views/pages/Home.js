@@ -1,5 +1,5 @@
 const getNFTs = async () => {
-    if (CONNECTED_WALLET) {
+    if (ethereum.sellectedAddress && CONNECTED_WALLET) {
         let nfts = await web3api.get(`/nft/${CONTRACT_ADDRESS}/owners`, {
             order: 'token_id.DESC'
         });

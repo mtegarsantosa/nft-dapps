@@ -30,7 +30,7 @@ a simple NFT contract creation, and NFT web based application using [Moralis](ht
 | MORALIS_SERVER_URL | moralis's https server url | *string* |
 | MORALIS_API_KEY | moralis api key | *string* |
 | MORALIS_API_URL | moralis api url | *string* |
-| CONTRACT_ADDRESS | connected contract/token address (automatically filled after deploy | *string* |
+| CONTRACT_ADDRESS | connected contract/token address (automatically filled after deploy) | *string* |
 
 
 ### 💽 Generate NFT Token

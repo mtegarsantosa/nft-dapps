@@ -39,8 +39,8 @@ Afterwards, rename `.env.example` to `.env`.
 ```
 BLOCKCHAIN_NETWORK=ethTestnet
 
-WALLET_MNEMONIC= <YOUR-METAMASK-PARAPHRASE>
-WALLET_ADDRESS= <YOUR-METAMASK-ADDRESS>
+WALLET_MNEMONIC=<YOUR-METAMASK-PARAPHRASE>
+WALLET_ADDRESS=<YOUR-METAMASK-ADDRESS>
 
 MORALIS_APP_ID=
 MORALIS_SERVER_URL=
@@ -69,6 +69,8 @@ Put it in `README.md`, under the **NFT Token Addresses List** with this formatin
 [<YOUR-NFT-NAME> (<YOUR-NFT-SYMBOL>)](https://ropsten.etherscan.io/token/<YOUR-CONTRACT-ADDRESS>) - [<YOUR-GITHUB-USERNAME>](<YOUR-GITHUB-LINK>)
 
 ```
+
+### 6. Create Your PR!
 
 ### Recent Lists:
 

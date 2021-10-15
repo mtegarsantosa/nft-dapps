@@ -43,7 +43,7 @@ const notify = (_txt) => {
 }
 export default {
     render: async () => {
-        if (!CONNECTED_WALLET) {
+        if (!CONNECTED_WALLET || !ethereum.selectedAddress) {
             return `
                 <section class="section">
                     Please connect your Metamask wallet!
@@ -114,7 +114,7 @@ export default {
         return view
     },
     after_render: async () => {
-        if (CONNECTED_WALLET) {
+        if (ethereum.selectedAddress && CONNECTED_WALLET) {
             mintNFT.addEventListener("submit", function(){
                 upload();
             });

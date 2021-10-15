@@ -44,7 +44,7 @@ export default {
                 <div class="container">
                     <div class="navbar-brand">
                         <a class="navbar-item" href="/#/">
-                            <img src="https://thenewfork.com/wp-content/uploads/2020/02/cropped-TheNewFork-landscape-1.jpg" width="112" height="28">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/NFT_Icon.png/480px-NFT_Icon.png">
                         </a>
 
                         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">

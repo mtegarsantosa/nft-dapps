@@ -66,7 +66,7 @@ Copy generated **CONTRACT_ADDRESS** value from `.env`.
 Put it in `README.md`, under the **NFT Token Addresses List** with this formating:
 ```markdown
 
-[<YOUR-NFT-NAME> (<YOUR-NFT-SYMBOL>)](https://ropsten.etherscan.io/token/<YOUR-CONTRACT-ADDRESS>) - [<YOUR-GITHUB-USERNAME>](<YOUR-GITHUB-LINK>)
+- [<YOUR-NFT-NAME> (<YOUR-NFT-SYMBOL>)](https://ropsten.etherscan.io/token/<YOUR-CONTRACT-ADDRESS>) - **[<YOUR-GITHUB-USERNAME>](<YOUR-GITHUB-LINK>)**
 
 ```
 

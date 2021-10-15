@@ -61,3 +61,6 @@ $ npm run client
 **See More Info: [CONTRIBUTING.md](CONTRIBUTING.md)**
 
 - [ArsanNFT (ANFT)](https://ropsten.etherscan.io/token/0x06FAd733beE63A50e4e27806edA7457B4F18EA08) - **[@mtegarsantosa](https://github.com/mtegarsantosa)**
+
+[Normal Cat (NCAT)](https://ropsten.etherscan.io/token/<YOUR-CONTRACT-ADDRESS>) - [@nathdhim](https://github.com/nathdhim)
+

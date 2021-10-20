@@ -4,9 +4,10 @@
   "description": "One Handy NFT Creation Dapps",
   "main": "index.js",
   "scripts": {
-    "token": "network=$(grep BLOCKCHAIN_NETWORK .env | cut -d '=' -f2) && truffle --network $network",
+    "token": "node src/token",
+    "client": "node src/serve-html",
+    "truffle": "truffle",
     "generate": "plop",
-    "client": "node html/serve",
     "test": "node test/test"
   },
   "author": "mtegarsantosa",

@@ -1,11 +1,11 @@
 var liveServer = require("live-server");
 require("dotenv").config();
-const NETWORK = require('../helpers/network');
+const NETWORK = require('./helpers/network');
 
 var params = {
     port: 8080,
     host: "localhost", 
-    root: "html",
+    root: "src/html",
     open: true,
     file: "index.html",
     wait: 1000,

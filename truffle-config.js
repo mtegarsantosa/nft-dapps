@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const ENV = process.env;
-const NETWORK = require('./helpers/network');
+const NETWORK = require('./src/helpers/network');
 
 module.exports = {
   contracts_build_directory: "./html/contracts",

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "token": "node src/token",
+    "token:plugin": "node src/truffle-plugin",
     "client": "node src/serve-html",
     "truffle": "truffle",
     "generate": "plop",
@@ -19,6 +20,7 @@
     "live-server": "^1.2.1",
     "npm": "^6.14.12",
     "plop": "^2.7.4",
-    "truffle": "^5.4.13"
+    "truffle": "^5.4.13",
+    "truffle-plugin-verify": "^0.5.16"
   }
 }

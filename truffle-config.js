@@ -6,6 +6,10 @@ const NETWORK = require('./src/helpers/network');
 
 module.exports = {
   contracts_build_directory: "./html/contracts",
+  plugins: [
+    'truffle-plugin-verify'
+  ],
+  api_keys: NETWORK[ENV.BLOCKCHAIN_NETWORK].api_keys,
   networks: {
     development: {
       host: "127.0.0.1",

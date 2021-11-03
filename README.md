@@ -51,6 +51,12 @@ $ npm run token compile
 ```
 ![Token Compile](https://blogger.googleusercontent.com/img/a/AVvXsEiG0wrH44jsqMOKjOEaom6-My74HJzxTvxyP3jkP5VET7TS4wV7XzU6ZJc6FyFMnmxNx9cKQvFvSNtHgNboulE2p1hI7zltm43jbuBoZvJevhRe_V3692DbUv7RBUrE_r2tkf6yCw5aPAUpil0vaVV-NkAWWgnyI6NogVvxvDK8FblO6c_5JYLQKF0 "Token Compile")
 
+### 💽 Verifying Token on Blockchain
+```sh
+$ npm run token verify
+```
+![Token Verify](https://lh3.googleusercontent.com/-7C8QfK6KNig/YYIkUhdDkjI/AAAAAAAAAIc/y-uAM-Psop0fPcaxJuBAPB5w_G_AsN04gCLcBGAsYHQ/s16000/verify.gif "Token Verify")
+
 ### 💽 Run DApps Client
 ```sh
 $ npm run client

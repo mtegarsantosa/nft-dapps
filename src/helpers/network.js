@@ -30,11 +30,21 @@ module.exports = {
             bscscan: ENV.BLOCKCHAIN_NETWORK_API_KEY
         }
     },
-    ethTestnet: {
+    ethRopsten: {
         node: "https://speedy-nodes-nyc.moralis.io/0899f85a180ace99d8358a78/eth/ropsten",
         explorer: "https://ropsten.etherscan.io",
         api_params: {
             chain: "ropsten"
+        },
+        api_keys: {
+            etherscan: ENV.BLOCKCHAIN_NETWORK_API_KEY
+        }
+    },
+    ethRinkeby: {
+        node: "https://speedy-nodes-nyc.moralis.io/0899f85a180ace99d8358a78/eth/rinkeby",
+        explorer: "https://rinkeby.etherscan.io",
+        api_params: {
+            chain: "rinkeby"
         },
         api_keys: {
             etherscan: ENV.BLOCKCHAIN_NETWORK_API_KEY

@@ -23,7 +23,7 @@ a simple NFT contract creation, and NFT web based application using [Moralis](ht
 
 | VARIABLE | DESCRIPTION | TYPE |
 |--|--|--|
-| BLOCKCHAIN_NETWORK | contract & token bc network | *enum:* development, bscMainnet, bscTestnet, ethMainnet, ethTestnet |
+| BLOCKCHAIN_NETWORK | contract & token bc network | *enum:* development, bscMainnet, bscTestnet, ethMainnet, ethRopsten, ethRinkeby |
 | BLOCKCHAIN_NETWORK_API_KEY | api key on bscscan/etherscan | *string* |
 | WALLET_MNEMONIC | secret metamask paraphrase | *string* |
 | WALLET_ADDRESS | metamask account address | *string* |

@@ -5,7 +5,7 @@ const ENV = process.env;
 const NETWORK = require('./src/helpers/network');
 
 module.exports = {
-  contracts_build_directory: "./html/contracts",
+  contracts_build_directory: "./src/html/contracts",
   plugins: [
     'truffle-plugin-verify'
   ],

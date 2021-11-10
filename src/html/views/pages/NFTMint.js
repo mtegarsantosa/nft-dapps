@@ -31,7 +31,7 @@ const upload = async () => {
         "image": imageURI
     }
     const metadataFile = new Moralis.File("metadata.json", {base64 : btoa(JSON.stringify(metadata))});
-    await metadataFile.saveIPFS();
+    await metadataFile.saveIPFS({useMasterKey:true});
     const metadataURI = metadataFile.ipfs();
     const txt = await mintToken(metadataURI).then(notify)
     mintNFTBtn.classList.remove("is-loading");
